@@ -1,0 +1,43 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+
+<!-- Session factory allows use to get the session object to connect to database -->
+
+    <session-factory>
+
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hb-03-one-to-many?useSSL=false&amp;serverTimezone=UTC</property>
+        <property name="connection.username">hbstudent</property>
+        <property name="connection.password">hbstudent</property>
+
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- Select our SQL dialect(When hibernate generates sql it knows how to talk to mysql,different
+        databases have little tweak in the query language ex:oracle,mysql,postgresql-->
+        
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Echo the SQL to stdout (When hibernate executes it will printout the sql statements when it sends to db -->
+        
+        <property name="show_sql">true</property>
+
+		<!-- Set the current session context -->
+		<property name="current_session_context_class">thread</property>
+		
+		
+		 <!-- To automatically create databse table if not in databse just by using java class code
+		
+		 Drop and re-create the database schema on startup
+         <property name=”hbm2ddl.auto”>create</property>
+          -->
+        
+ 
+    </session-factory>
+
+</hibernate-configuration>
